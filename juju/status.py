@@ -6,17 +6,14 @@ import logging
 import sys
 import warnings
 
-if sys.version_info >= (3, 11):
-    from enum import StrEnum
-else:
-    from backports.strenum import StrEnum
+from enum import Enum
 
 from .client import client
 
 log = logging.getLogger(__name__)
 
 
-class StatusStr(StrEnum):
+class StatusStr(Enum):
     """Recognised status values.
 
     Please keep this set exact same as the severity map below.
@@ -46,7 +43,7 @@ severity_map: dict[StatusStr, int] = {
 }
 
 
-def derive_status(statuses: list[str | StatusStr]) -> StatusStr:
+def derive_status(statuses: list[str | StatusStr]) -> str:
     """Derive status from a set.
 
     derive_status is used to determine the application status from a set of unit
@@ -64,7 +61,7 @@ def derive_status(statuses: list[str | StatusStr]) -> StatusStr:
 
         if severity_map[status] > severity_map[current]:
             current = status
-    return current
+    return str(current.value)
 
 
 async def formatted_status(model, target=None, raw=False, filters=None):

@@ -31,7 +31,6 @@ setup(
         "hvac",
         "packaging",
         "typing-extensions>=4.5.0",
-        'backports.strenum>=1.3.1; python_version < "3.11"',
     ],
     extras_require={
         "dev": [
