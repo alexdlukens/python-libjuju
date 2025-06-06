@@ -3,10 +3,9 @@
 
 import logging
 
-import datetime
-
 from . import errors, tag
 from .client import client
+from .utils import fromisoformat
 
 log = logging.getLogger(__name__)
 
@@ -31,7 +30,7 @@ class User:
 
     @property
     def last_connection(self):
-        return datetime.datetime.fromisoformat(self._user_info.last_connection)
+        return fromisoformat(self._user_info.last_connection)
 
     @property
     def access(self):

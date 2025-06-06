@@ -8,7 +8,6 @@ import json
 import logging
 from pathlib import Path
 
-from typing_extensions import deprecated
 
 from . import model, tag, utils
 from .annotationhelper import _get_annotations, _set_annotations
@@ -20,7 +19,7 @@ from .placement import parse as parse_placement
 from .relation import Relation
 from .status import derive_status
 from .url import URL
-from .utils import block_until
+from .utils import block_until, deprecated
 from .version import DEFAULT_ARCHITECTURE
 
 log = logging.getLogger(__name__)

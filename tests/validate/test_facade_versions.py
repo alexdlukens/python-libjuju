@@ -16,7 +16,7 @@ from juju.client.facade_versions import (
 
 
 @pytest.fixture
-def project_root(pytestconfig: pytest.Config) -> Path:
+def project_root(pytestconfig) -> Path:
     return pytestconfig.rootpath
 
 

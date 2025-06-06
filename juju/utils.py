@@ -4,8 +4,11 @@ from __future__ import annotations
 
 import asyncio
 import base64
+import datetime
+import functools
 import os
 import textwrap
+import warnings
 import zipfile
 from collections import defaultdict
 from pathlib import Path
@@ -21,6 +24,25 @@ from . import errors, origin
 from .client import client
 from .errors import JujuError
 
+
+def deprecated(reason):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            warnings.warn(
+                f"{func.__qualname__} is deprecated: {reason}",
+                category=DeprecationWarning,
+                stacklevel=2,
+            )
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
+
+def fromisoformat(date_string: str):
+    # replace trailing Z
+    if date_string.endswith("Z"):
+        date_string = date_string[:-1] + "+00:00"
+    return datetime.datetime.fromisoformat(date_string)
 
 async def execute_process(*cmd, log=None) -> bool:
     """Wrapper around asyncio.create_subprocess_exec."""

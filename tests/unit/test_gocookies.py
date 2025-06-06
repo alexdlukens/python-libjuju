@@ -5,13 +5,12 @@
 import os
 import shutil
 import tempfile
-import datetime
 import unittest
 import urllib.request
 
 
 from juju.client.gocookies import GoCookieJar
-
+from juju.utils import fromisoformat
 # cookie_content holds the JSON contents of a Go-produced
 # cookie file (reformatted so it's not all on one line but
 # otherwise unchanged).
@@ -224,7 +223,7 @@ class TestGoCookieJar(unittest.TestCase):
         ]"""
         jar = self.load_jar(content)
         got_expires = tuple(jar)[0].expires
-        want_expires = int(datetime.datetime.fromisoformat("2345-11-15T18:16:08Z").timestamp())
+        want_expires = int(fromisoformat("2345-11-15T18:16:08Z").timestamp())
         self.assertEqual(got_expires, want_expires)
 
     def load_jar(self, content):

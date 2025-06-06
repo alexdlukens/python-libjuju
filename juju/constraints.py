@@ -21,8 +21,6 @@
 import re
 from typing import Dict, List, Mapping, Optional, TypedDict, Union
 
-from typing_extensions import NotRequired, Required
-
 # Matches on a string specifying memory size
 MEM = re.compile("^[1-9][0-9]*[MGTP]$")
 
@@ -166,10 +164,10 @@ STORAGE = re.compile(
 )
 
 
-class StorageConstraintDict(TypedDict):
-    count: Required[int]  # >= 1
-    pool: NotRequired[str]
-    size: NotRequired[int]
+class StorageConstraintDict(TypedDict, total=False):
+    count: int  # >= 1
+    pool: str
+    size: int
 
 
 def parse_storage_constraint(constraint: str) -> StorageConstraintDict:
@@ -228,10 +226,10 @@ DEVICE = re.compile(
 ATTR = re.compile(";?(?P<key>[^=]+)=(?P<value>[^;]+)")
 
 
-class DeviceConstraintDict(TypedDict):
-    count: Required[int]
-    type: Required[str]
-    attributes: NotRequired[Dict[str, str]]
+class DeviceConstraintDict(TypedDict, total=False):
+    count: int
+    type: str
+    attributes: Dict[str, str]
 
 
 def parse_device_constraint(constraint: str) -> DeviceConstraintDict:
