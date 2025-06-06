@@ -6,7 +6,6 @@ import http.cookiejar as cookiejar
 import json
 import time
 
-from backports.datetime_fromisoformat import datetime_fromisoformat
 
 
 class GoCookieJar(cookiejar.FileCookieJar):
@@ -52,7 +51,7 @@ def go_to_py_cookie(go_cookie):
     """Convert a Go-style JSON-unmarshaled cookie into a Python cookie"""
     expires = None
     if go_cookie.get("Expires") is not None:
-        t = datetime_fromisoformat(go_cookie["Expires"])
+        t = datetime.datetime.fromisoformat(go_cookie["Expires"])
         expires = t.timestamp()
     return cookiejar.Cookie(
         version=0,

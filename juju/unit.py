@@ -3,7 +3,7 @@
 
 import logging
 
-from backports.datetime_fromisoformat import datetime_fromisoformat
+import datetime
 
 from juju.errors import JujuAPIError, JujuError
 
@@ -12,7 +12,6 @@ from .annotationhelper import _get_annotations, _set_annotations
 from .client import client
 
 log = logging.getLogger(__name__)
-
 
 class Unit(model.ModelEntity):
     @property
@@ -27,7 +26,7 @@ class Unit(model.ModelEntity):
     @property
     def agent_status_since(self):
         """Get the time when the `agent_status` was last updated."""
-        return datetime_fromisoformat(self.safe_data["agent-status"]["since"])
+        return datetime.datetime.fromisoformat(self.safe_data["agent-status"]["since"])
 
     @property
     def is_subordinate(self):
@@ -54,7 +53,7 @@ class Unit(model.ModelEntity):
     @property
     def workload_status_since(self):
         """Get the time when the `workload_status` was last updated."""
-        return datetime_fromisoformat(self.safe_data["workload-status"]["since"])
+        return datetime.datetime.fromisoformat(self.safe_data["workload-status"]["since"])
 
     @property
     def workload_status_message(self):

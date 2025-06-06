@@ -32,7 +32,6 @@ setup(
         "packaging",
         "typing-extensions>=4.5.0",
         'backports.strenum>=1.3.1; python_version < "3.11"',
-        "backports-datetime-fromisoformat>=2.0.2",
     ],
     extras_require={
         "dev": [

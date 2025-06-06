@@ -5,8 +5,7 @@ import asyncio
 import ipaddress
 import logging
 import typing
-
-from backports.datetime_fromisoformat import datetime_fromisoformat
+import datetime
 
 from juju.utils import block_until, juju_ssh_key_paths
 
@@ -239,7 +238,7 @@ class Machine(model.ModelEntity):
     @property
     def agent_status_since(self):
         """Get the time when the `agent_status` was last updated."""
-        return datetime_fromisoformat(self.safe_data["agent-status"]["since"])
+        return datetime.datetime.fromisoformat(self.safe_data["agent-status"]["since"])
 
     @property
     def agent_version(self):
@@ -266,7 +265,7 @@ class Machine(model.ModelEntity):
     @property
     def status_since(self):
         """Get the time when the `status` was last updated."""
-        return datetime_fromisoformat(self.safe_data["instance-status"]["since"])
+        return datetime.datetime.fromisoformat(self.safe_data["instance-status"]["since"])
 
     @property
     def dns_name(self):
