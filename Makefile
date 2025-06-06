@@ -1,4 +1,4 @@
-BIN := .tox/py3/bin
+BIN := .tox/py/bin
 PY := $(BIN)/python3
 PIP := $(BIN)/pip3
 VERSION := $(shell python3 -c "from juju.version import CLIENT_VERSION; print(CLIENT_VERSION)")
@@ -54,12 +54,15 @@ release:
 .PHONY: upload
 upload: release
 
+.PHONY: tox-install
+tox-install:
+	tox
+
 .PHONY: install-deb-build-deps
 install-deb-build-deps:
-	sudo apt install -y python3-all debhelper sbuild schroot ubuntu-dev-tools
-	$(PIP) install stdeb
+	sudo apt install -y python3-all debhelper sbuild schroot ubuntu-dev-tools dh-python devscripts equivs
 
 .PHONY: build-deb
 build-deb: install-deb-build-deps
 	rm -rf deb_dist
-	$(PY) setup.py --command-packages=stdeb.command bdist_deb
+	dpkg-buildpackage -us -uc -S -jauto

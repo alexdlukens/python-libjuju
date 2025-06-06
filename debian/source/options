@@ -1,1 +1,4 @@
 extend-diff-ignore = "^[^/]*[.]egg-info/"
+compression = "gzip"
+tar-ignore = ".*"
+tar-ignore = "__pycache__" 

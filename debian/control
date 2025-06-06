@@ -7,8 +7,17 @@ Build-Depends:
     dh-python,
     python3-all,
     python3-setuptools,
-Build-Depends-Indep:
-    python-pathlib,
+    python3-macaroonbakery,
+    python3-yaml,
+    python3-websockets,
+    python3-paramiko,
+    python3-pyasn1,
+    python3-toposort,
+    python3-typing-inspect,
+    python3-kubernetes,
+    python3-hvac,
+    python3-packaging,
+    python3-typing-extensions,
 Standards-Version: 4.2.1
 Homepage: https://github.com/juju/python-libjuju
 Vcs-Browser: https://git.launchpad.net/~ubuntu-server-dev/ubuntu/+source/python-libjuju
@@ -16,9 +25,7 @@ Vcs-Git: https://git.launchpad.net/~ubuntu-server-dev/ubuntu/+source/python-libj
 
 Package: python3-juju
 Architecture: all
-Depends:
-    ${misc:Depends},
-    ${python3:Depends},
+Depends: ${python3:Depends}, ${misc:Depends}
 Description:
     A Python library for Juju
     =========================
@@ -33,8 +40,8 @@ Description:
     Requirements
     ------------
     .
-    * Python 3.6+
-    * Juju 2.0+
+    * Python 3.8+
+    * Juju 3.1+
     .
     .
     Design Notes

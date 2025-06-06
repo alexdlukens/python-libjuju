@@ -3,11 +3,11 @@ Upstream-Name: juju
 Source: https://github.com/juju/python-libjuju
 
 Files: *
-Copyright: 2020 Canonical Ltd
+Copyright: 2025 Canonical Ltd
 License: Apache License
 
 Files: debian/*
-Copyright: 2020 Canonical Ltd
+Copyright: 2025 Canonical Ltd
 License: Apache License
 
 License: Apache-2
