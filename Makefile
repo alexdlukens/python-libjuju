@@ -62,6 +62,13 @@ tox-install:
 install-deb-build-deps:
 	sudo apt install -y python3-all debhelper sbuild schroot ubuntu-dev-tools dh-python devscripts equivs
 
+.PHONY: build-bdeb
+build-bdeb: install-deb-build-deps
+	rm -rf deb_dist
+	dpkg-buildpackage -us -uc -b -jauto
+	mkdir -p deb_dist
+	mv ../*.dsc ../*.tar.* ../*.changes ../*.buildinfo deb_dist/
+
 .PHONY: build-deb
 build-deb: install-deb-build-deps
 	rm -rf deb_dist

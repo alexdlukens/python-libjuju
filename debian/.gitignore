@@ -1,1 +1,5 @@
 files
+python3-juju/
+.debhelper
+debhelper-build-stamp
+python3-juju*

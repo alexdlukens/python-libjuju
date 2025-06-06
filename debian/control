@@ -18,6 +18,10 @@ Build-Depends:
     python3-hvac,
     python3-packaging,
     python3-typing-extensions,
+    python3-pytest,
+    python3-pytest-asyncio,
+    twine,
+    python3-freezegun,
 Standards-Version: 4.2.1
 Homepage: https://github.com/juju/python-libjuju
 Vcs-Browser: https://git.launchpad.net/~ubuntu-server-dev/ubuntu/+source/python-libjuju
