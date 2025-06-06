@@ -21,7 +21,7 @@ Build-Depends:
 Standards-Version: 4.2.1
 Homepage: https://github.com/juju/python-libjuju
 Vcs-Browser: https://git.launchpad.net/~ubuntu-server-dev/ubuntu/+source/python-libjuju
-Vcs-Git: https://git.launchpad.net/~ubuntu-server-dev/ubuntu/+source/python-libjuju
+Vcs-Git: https://github.com/alexdlukens/python-libjuju.git -b deb
 
 Package: python3-juju
 Architecture: all

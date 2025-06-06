@@ -66,3 +66,13 @@ install-deb-build-deps:
 build-deb: install-deb-build-deps
 	rm -rf deb_dist
 	dpkg-buildpackage -us -uc -S -jauto
+	mkdir -p deb_dist
+	mv ../*.dsc ../*.tar.* ../*.changes ../*.buildinfo deb_dist/
+
+.PHONY: sign-deb
+sign-deb: build-deb
+	debsign -k $(GPG_KEY_ID) ./deb_dist/python-libjuju_*source.changes
+
+.PHONY: upload-deb
+upload-deb: sign-deb
+	dput ppa:alexdlukens/python-libjuju ./deb_dist/python-libjuju_*source.changes

@@ -1,6 +1,13 @@
-python-libjuju (3.6.1.1ubuntu1) UNRELEASED; urgency=low
+python-libjuju (3.6.1.1ubuntu1~jammy1) jammy; urgency=medium
+
+  * Initial release for Ubuntu Jammy
+
+ -- Alex Lukens <alex.lukens@canonical.com>  Fri, 06 Jun 2025 15:00:14 -0400
+
+python-libjuju (3.6.1.1ubuntu1~noble1) noble; urgency=low
 
   * Packaging version 3.6.1.1
 
+  * Initial release for Ubuntu Noble
 
- -- Alex Lukens <alex.lukens@canonical.com>  Fri, 06 Jun 2025 13:05:14 -0400
+ -- Alex Lukens <alex.lukens@canonical.com>  Fri, 06 Jun 2025 15:00:06 -0400
