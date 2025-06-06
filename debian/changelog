@@ -1,3 +1,9 @@
+python-libjuju (3.6.1.1ubuntu1~jammy3) jammy; urgency=medium
+
+  * Initial release for Ubuntu Jammy
+
+ -- Alex Lukens <alex.lukens@canonical.com>  Fri, 06 Jun 2025 16:33:46 -0400
+
 python-libjuju (3.6.1.1ubuntu1~jammy2) jammy; urgency=medium
 
   * Initial release for Ubuntu Jammy
