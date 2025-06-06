@@ -27,7 +27,6 @@ from typing import TYPE_CHECKING, Any, Iterable, Literal, Mapping, overload
 
 import websockets
 import yaml
-from typing_extensions import deprecated
 
 from .. import provisioner, tag, utils
 from ..annotationhelper import _get_annotations, _set_annotations
@@ -821,7 +820,6 @@ class Model:
         """
         return await self.connect()
 
-    @deprecated("Model.connect_to() is deprecated and will be removed soon")
     async def connect_to(self, connection):
         conn_params = connection.connect_params()
         await self._connect_direct(**conn_params)

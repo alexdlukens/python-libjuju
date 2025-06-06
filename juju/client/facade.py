@@ -18,7 +18,7 @@ from typing import Any, Mapping, Sequence, TypeVar, overload
 
 import packaging.version
 import typing_inspect
-from typing_extensions import Self, TypeAlias
+from typing_extensions import TypeAlias
 
 from . import codegen
 
@@ -681,7 +681,7 @@ class Type:
         return result
 
     @classmethod
-    def from_json(cls, data: Type | str | dict[str, Any] | list[Any]) -> Self | None:
+    def from_json(cls, data: Type | str | dict[str, Any] | list[Any]) -> Type | None:
         def _parse_nested_list_entry(expr, result_dict):
             if isinstance(expr, str):
                 if ">" in expr or ">=" in expr:

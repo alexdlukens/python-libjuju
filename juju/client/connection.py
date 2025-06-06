@@ -12,12 +12,13 @@ import warnings
 import weakref
 from http.client import HTTPSConnection
 from typing import Any, Literal, Sequence
+from typing_extensions import TypeAlias
 
 import macaroonbakery.bakery as bakery
 import macaroonbakery.httpbakery as httpbakery
 import websockets
 from dateutil.parser import parse
-from typing_extensions import Self, TypeAlias, overload
+from typing import overload
 
 from juju import errors, tag, utils
 from juju.client import client
@@ -147,7 +148,7 @@ class Connection:
         proxy=None,
         debug_log_conn=None,
         debug_log_params={},
-    ) -> Self:
+    ) -> Connection:
         """Connect to the websocket.
 
         If uuid is None, the connection will be to the controller. Otherwise it
